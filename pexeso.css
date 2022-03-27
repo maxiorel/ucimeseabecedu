@@ -1,0 +1,68 @@
+.pexeso-container{
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(30px, 1fr));
+  column-gap: 1em;
+  row-gap: 1em;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.pexeso-container[data-difficulty="advanced"]{
+  grid-template-columns: repeat(8, 1fr);
+  column-gap: 0.75em;
+  row-gap: 0.75em;
+  max-width: 90%;
+}
+
+.pexeso-container[data-difficulty="expert"]{
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 0.5em;
+  row-gap: 0.5em;
+  max-width: 90%;
+}
+
+.pexeso-container .card{
+  cursor: pointer;
+}
+
+.pexeso-container .card.solved{
+  -webkit-transform: rotateZ(-360deg);
+  -ms-transform: rotateZ(-360deg);
+  transform: rotateZ(-360deg);
+  transition:all 0.4s ease;
+}
+
+@media all and (-ms-high-contrast:none) {
+  .pexeso-container{
+    display: block;
+  }
+  .pexeso-container:after{
+    display: block;
+    content: "";
+    clear: both;
+  }
+  .pexeso-container .card{
+    display: block;
+    float: left;
+    width: calc(100% / 6);
+  }
+  .pexeso-container[data-difficulty="advanced"] .card{
+    width: calc(100% / 8);
+  }
+  .pexeso-container[data-difficulty="expert"] .card{
+    width: calc(100% / 12);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .pexeso-container,
+  .pexeso-container[data-difficulty="advanced"],
+  .pexeso-container[data-difficulty="expert"]{
+    grid-template-columns: repeat(3, minmax(30px, 1fr));
+    column-gap: 1em;
+    row-gap: 1em;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
